@@ -179,7 +179,8 @@ module.exports = function(grunt) {
       // Explicitly define all coverage options (as empty)
       coverage: {
         src: [],
-        disposeCollector: false
+        disposeCollector: false,
+        tempDir: __dirname + '/../temp'
       }
     });
 	
@@ -244,6 +245,8 @@ module.exports = function(grunt) {
             rimraf.sync(options.transport.instrumentedFiles);
           }
         }
+
+        var tempFileCoverage = path.normalize(options.coverage.tempDir + '/coverage.tmp');
 
         // write instrumented file information to an temporary file
         // and transport the info to phantom

@@ -81,6 +81,12 @@ The js files you would like to end up in the coverage report.
 A temporary folder (that will be automatically generated and deleted after the
 test suite finishes) containing the instrumented source code.
 
+#### tempDir
+
+* Type: `string` [optional]
+
+A folder where the temporary coverage data files should be stored.
+
 #### reportOnFail
 
 * Type: `boolean` [optional]
