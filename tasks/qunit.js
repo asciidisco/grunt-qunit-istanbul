@@ -25,8 +25,6 @@ module.exports = function(grunt) {
   var options, currentModule, currentTest, status;
   // Keep track of the last-started test(s).
   var unfinished = {};
-  // Get temp file path for covarage
-  var tempFileCoverage = path.normalize(__dirname + '/../temp/coverage.tmp');
   // Get an asset file, local to the root of the project.
   var asset = path.join.bind(null, __dirname, '..');
 
