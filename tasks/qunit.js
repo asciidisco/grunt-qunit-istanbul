@@ -238,11 +238,9 @@ module.exports = function(grunt) {
         if (options.coverage && options.coverage.instrumentedFiles) {
           if (!fs.existsSync(options.coverage.instrumentedFiles)) {
             grunt.file.mkdir(options.coverage.instrumentedFiles);
-            options.transport.instrumentedFiles = options.coverage.instrumentedFiles;
-          } else {
-            options.transport.instrumentedFiles = fs.realpathSync(options.coverage.instrumentedFiles);
-            rimraf.sync(options.transport.instrumentedFiles);
-          }
+          } 
+          options.transport.instrumentedFiles = fs.realpathSync(options.coverage.instrumentedFiles);
+          rimraf.sync(options.transport.instrumentedFiles);
         }
 
         // write instrumented file information to an temporary file
