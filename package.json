@@ -1,7 +1,7 @@
 {
   "name": "grunt-qunit-istanbul",
   "description": "Run QUnit unit tests in a headless PhantomJS instance and create coverage reports with istanbul.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "homepage": "https://github.com/asciidisco/grunt-qunit-istanbul",
   "author": {
     "name": "Grunt Team",
