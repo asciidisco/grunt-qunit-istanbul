@@ -25,8 +25,6 @@ module.exports = function(grunt) {
   var options, currentModule, currentTest, status;
   // Keep track of the last-started test(s).
   var unfinished = {};
-  // Get temp file path for covarage
-  var tempFileCoverage = path.normalize(__dirname + '/../temp/coverage.tmp');
   // Get an asset file, local to the root of the project.
   var asset = path.join.bind(null, __dirname, '..');
 
@@ -179,7 +177,8 @@ module.exports = function(grunt) {
       // Explicitly define all coverage options (as empty)
       coverage: {
         src: [],
-        disposeCollector: false
+        disposeCollector: false,
+        tempDir: __dirname + '/../temp'
       }
     });
 	
@@ -242,6 +241,8 @@ module.exports = function(grunt) {
           options.transport.instrumentedFiles = fs.realpathSync(options.coverage.instrumentedFiles);
           rimraf.sync(options.transport.instrumentedFiles);
         }
+
+        var tempFileCoverage = path.normalize(options.coverage.tempDir + '/coverage.tmp');
 
         // write instrumented file information to an temporary file
         // and transport the info to phantom
